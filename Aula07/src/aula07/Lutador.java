@@ -1,6 +1,7 @@
 package aula07;
 
 import java.security.spec.RSAOtherPrimeInfo;
+import java.util.Objects;
 
 public class Lutador {
     //Atributos
@@ -129,5 +130,23 @@ public class Lutador {
 
     public void setEmpates(int empates) {
         this.empates = empates;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o){
+            return true;
+        }
+        if(!(o instanceof Lutador)){
+            return false;
+        }
+
+        Lutador l = (Lutador) o;
+        return Objects.equals(l.getNome() , this.getNome());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this);
     }
 }
